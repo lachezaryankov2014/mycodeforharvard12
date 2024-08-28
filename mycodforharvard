@@ -1,0 +1,33 @@
+// Define LED pin
+const int ledPin = 13;
+// Define the Morse code for SOS
+String morseSOS = "... --- ...";
+
+void setup() {
+// Initialize the LED pin as an output
+pinMode(ledPin, OUTPUT);
+}
+void loop() {
+for (int i = 0; i < morseSOS.length(); i++) {
+// Send dot
+if (morseSOS[i] == '.') {
+digitalWrite(ledPin, HIGH);
+delay(250);
+digitalWrite(ledPin, LOW);
+delay(250);
+}
+// Send dash
+else if (morseSOS[i] == '-') {
+digitalWrite(ledPin, HIGH);
+delay(750);
+digitalWrite(ledPin, LOW);
+delay(250);
+}
+// Pause between letters
+else {
+delay(750);
+}
+}
+// Pause between SOS signals
+delay(2000);
+}
